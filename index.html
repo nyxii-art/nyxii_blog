@@ -873,7 +873,7 @@
   reveals.forEach(el => observer.observe(el));
 
   // Form submit
-  function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
     btn.textContent = '✓ Sporočilo poslano!';
