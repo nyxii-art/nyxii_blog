@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditacija Kirtan Kriya – NyxiiPage</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --card: #1e1e1e;
+    --accent1: #ff4d6d;
+    --accent2: #ffd166;
+    --accent3: #06d6a0;
+    --text: #f0ede8;
+    --muted: #888;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4vw;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent1); }
+
+  .nav-back {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--text); }
+
+  .article-hero {
+    padding: 120px 4vw 60px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255,77,109,0.15);
+    color: var(--accent1);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-title span {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent1);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .meta-dot {
+    width: 3px; height: 3px;
+    background: var(--muted);
+    border-radius: 50%;
+  }
+
+  .article-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 4vw;
+  }
+
+  .article-image-placeholder {
+    width: 100%;
+    height: 380px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #118ab2 0%, #06d6a0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .article-image-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 12px,
+      rgba(255,255,255,0.05) 12px, rgba(255,255,255,0.05) 13px
+    );
+  }
+
+  .article-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 4vw 80px;
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #c8c4be;
+    margin-bottom: 1.75rem;
+  }
+
+  .article-body h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin: 2.5rem 0 1rem;
+    color: var(--text);
+  }
+
+  .highlight {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent1);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent1);
+    margin-bottom: 0.75rem;
+  }
+
+  .highlight p {
+    margin-bottom: 0 !important;
+    color: var(--text) !important;
+    font-size: 0.95rem !important;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .info-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .info-box-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+  .info-box-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .info-box p {
+    font-size: 0.85rem !important;
+    color: var(--muted) !important;
+    margin-bottom: 0 !important;
+    line-height: 1.6 !important;
+  }
+
+  .sources {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 3rem;
+  }
+
+  .sources-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .sources ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .sources a {
+    color: var(--accent3);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .sources a:hover { color: var(--text); }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .back-btn:hover {
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Nyxii<span>Page</span></a>
+  <a href="index.html" class="nav-back">← Nazaj na blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-tag">✦ Duhovnost</div>
+  <h1 class="article-title">Nova dognanja o<br><span>meditaciji Kirtan Kriya</span></h1>
+  <div class="article-meta">
+    <span>Nejc</span>
+    <div class="meta-dot"></div>
+    <span>15. mar 2026</span>
+    <div class="meta-dot"></div>
+    <span>4 min branja</span>
+  </div>
+</div>
+
+<div class="article-image">
+  <div class="article-image-placeholder">🧘</div>
+</div>
+
+<div class="article-body">
+
+  <p>Nova dognanja o meditaciji Kirtan Kriya kažejo, da bi lahko ta 12-minutna tehnika pozitivno vplivala na stres, razpoloženje, spanec in nekatere vidike spomina. Manjše klinične študije pri starejših z blagimi spominskimi težavami in pri zelo obremenjenih skrbnikih oseb z demenco so pokazale obetavne rezultate, vključno z izboljšanjem subjektivnega počutja in določenih kognitivnih funkcij.</p>
+
+  <div class="highlight">
+    <div class="highlight-label">⚠ Pomembno</div>
+    <p>Raziskovalci opozarjajo, da dokazna podlaga še ni dovolj močna za trditve, da gre za dokazano metodo preprečevanja demence ali nadomestilo za zdravljenje. Trenutno velja predvsem kot smiselna podporna praksa za umirjanje in boljšo zbranost.</p>
+  </div>
+
+  <h2>Kaj kaže dosedanja literatura?</h2>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <div class="info-box-icon">🧠</div>
+      <div class="info-box-title">Spomin</div>
+      <p>Izboljšanje določenih kognitivnih funkcij pri starejših z blagimi spominskimi težavami.</p>
+    </div>
+    <div class="info-box">
+      <div class="info-box-icon">😌</div>
+      <div class="info-box-title">Stres</div>
+      <p>Zmanjšanje zaznanega stresa pri skrbnikih oseb z demenco po redni praksi.</p>
+    </div>
+    <div class="info-box">
+      <div class="info-box-icon">🌙</div>
+      <div class="info-box-title">Spanec</div>
+      <p>Pozitivni učinki na kakovost spanca pri odraslih z zgodnjimi znaki spominske izgube.</p>
+    </div>
+    <div class="info-box">
+      <div class="info-box-icon">⏱</div>
+      <div class="info-box-title">Čas prakse</div>
+      <p>Samo 12 minut dnevno — dostopno za večino, brez posebne opreme ali izkušenj.</p>
+    </div>
+  </div>
+
+  <div class="sources">
+    <div class="sources-title">Viri</div>
+    <ul>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">→ PubMed – Effects of Meditation versus Music Listening on Perceived Stress, Mood, Sleep, and Quality of Life in Adults with Early Memory Loss</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">→ PubMed – Meditation and Music Improve Memory and Cognitive Function in Adults with Subjective Cognitive Decline</a></li>
+      <li><a href="https://www.ncbi.nlm.nih.gov/pmc" target="_blank">→ PMC – A pilot study of yogic meditation for family dementia caregivers with depressive symptoms</a></li>
+    </ul>
+  </div>
+
+  <a href="index.html" class="back-btn">← Nazaj na blog</a>
+
+</div>
+
+</body>
+</html>
