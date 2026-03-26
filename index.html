@@ -13,7 +13,7 @@
     --accent1: #ff4d6d;
     --accent2: #ffd166;
     --accent3: #06d6a0;
-    --accent4: #118ab2;h
+    --accent4: #118ab2;
     --text: #f0ede8;
     --muted: #888;
     --border: rgba(255,255,255,0.07);
@@ -697,28 +697,30 @@
   </div>
 
   <div class="posts-grid">
-<!-- Card 3 -->
-<a href="dnk.html" class="post-card reveal">
-  <div class="card-image">
-    <div class="card-image-bg" style="background-image: url('dnk.png'); background-size: cover; background-position: center;"></div>
-    <div class="card-image-pattern"></div>
-  </div>
-  <div class="card-body">
-    <span class="card-tag tag-yellow">Biohacking</span>
-    <h3 class="card-title" style="color: #ef8c29;">Kaj sem odkril, ko sem dal svojo DNK pod mikroskop AI-ja</h3>
-    <p class="card-excerpt">Naložil sem 609.424 vrstic surovih DNK podatkov Claudu. Kar je sledilo, so bile ure sistematičnega brskanja po lastnem genomu — lipidi, vitamini, farmakogenomika, zobozdravnik.</p>
-    <div class="card-meta">
-      <span>8. mar 2026</span>
-      <div class="card-meta-dot"></div>
-      <span>6 min</span>
-    </div>
-  </div>
-</a>
-    
-    <!-- Card 2 -->
-<a href="meditacija.html" class="post-card reveal">
+    <!-- Featured -->
+    <a href="lasje.html" class="post-card featured reveal">
       <div class="card-image">
-<div class="card-image-bg" style="background-image: url('meditacija.png'); background-size: cover; background-position: center;"></div>
+        <div class="card-image-bg" style="background-image: url('lasje.png'); background-size: cover; background-position: center;"></div>
+        <div class="card-image-pattern"></div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag tag-red">✦ Izpostavljeno</span>
+        <h3 class="card-title">Novi lasje</h3>
+        <p class="card-excerpt">Raziskovalci z Nacionalne univerze v Tajvanu so razvili topikalni serum na osnovi mononenasičenih maščobnih kislin, ki je pri miših v 20 dneh sprožil hitro rast las – z aktivacijo signalov maščobnih celic pod kožo....</p>
+        <div class="card-meta">
+          <span>Nejc</span>
+          <div class="card-meta-dot"></div>
+          <span>20. mar 2026</span>
+          <div class="card-meta-dot"></div>
+          <span>5 min branja</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="meditacija.html" class="post-card reveal">
+      <div class="card-image">
+        <div class="card-image-bg" style="background-image: url('meditacija.png'); background-size: cover; background-position: center;"></div>
         <div class="card-image-pattern"></div>
       </div>
       <div class="card-body">
@@ -734,14 +736,14 @@
     </a>
 
     <!-- Card 3 -->
-Card 2class="post-card reveal">
+    <a href="dnk.html" class="post-card reveal">
       <div class="card-image">
-        <div class="<div class="card-image-bg" style="background-image: url('dnk.png'); background-size: cover; background-position: center;"></div>"></div>
+        <div class="card-image-bg" style="background-image: url('dnk.png'); background-size: cover; background-position: center;"></div>
         <div class="card-image-pattern"></div>
       </div>
       <div class="card-body">
         <span class="card-tag tag-yellow">Biohacking</span>
-<h3 class="card-title" style="color: #ef8c29;">Kaj sem odkril, ko sem dal svojo DNK pod mikroskop AI-ja</h3>
+        <h3 class="card-title" style="color: #ef8c29;">Kaj sem odkril, ko sem dal svojo DNK pod mikroskop AI-ja</h3>
         <p class="card-excerpt">Naložil sem 609.424 vrstic surovih DNK podatkov Claudu. Kar je sledilo, so bile ure sistematičnega brskanja po lastnem genomu — lipidi, vitamini, farmakogenomika, zobozdravnik.</p>
         <div class="card-meta">
           <span>8. mar 2026</span>
@@ -870,20 +872,6 @@ Card 2class="post-card reveal">
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Form submit
-function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✓ Sporočilo poslano!';
-    btn.style.background = 'var(--accent3)';
-    btn.style.boxShadow = '0 8px 32px rgba(6,214,160,0.4)';
-    setTimeout(() => {
-      btn.textContent = 'Pošlji sporočilo ✦';
-      btn.style.background = 'var(--accent1)';
-      btn.style.boxShadow = '0 8px 32px rgba(255,77,109,0.35)';
-      e.target.reset();
-    }, 3000);
-  }
 </script>
 </body>
 </html>
