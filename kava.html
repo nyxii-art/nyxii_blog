@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kofein + vadba na tešče – NyxiiPage</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --card: #1e1e1e;
+    --accent1: #ff4d6d;
+    --accent2: #ffd166;
+    --accent3: #06d6a0;
+    --text: #f0ede8;
+    --muted: #888;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4vw;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent1); }
+
+  .nav-back {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--text); }
+
+  .article-hero {
+    padding: 120px 4vw 60px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(17,138,178,0.15);
+    color: #118ab2;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-title span {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: #118ab2;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .meta-dot {
+    width: 3px; height: 3px;
+    background: var(--muted);
+    border-radius: 50%;
+  }
+
+  .article-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 4vw;
+  }
+
+  .article-image img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+  }
+
+  .article-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 4vw 80px;
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #c8c4be;
+    margin-bottom: 1.75rem;
+  }
+
+  .article-body h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    margin: 2.5rem 0 1rem;
+    color: var(--text);
+  }
+
+  .highlight {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid #118ab2;
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #118ab2;
+    margin-bottom: 0.75rem;
+  }
+
+  .highlight p {
+    margin-bottom: 0 !important;
+    color: var(--text) !important;
+    font-size: 0.95rem !important;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .info-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .info-box-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+  .info-box-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .info-box p {
+    font-size: 0.85rem !important;
+    color: var(--muted) !important;
+    margin-bottom: 0 !important;
+    line-height: 1.6 !important;
+  }
+
+  .check-list {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .check-list ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .check-list li {
+    font-size: 0.95rem;
+    color: #c8c4be;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .check-list li::before {
+    content: '✓';
+    color: var(--accent3);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .check-list li.cross::before {
+    content: '✗';
+    color: var(--accent1);
+  }
+
+  .sources {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 3rem;
+  }
+
+  .sources-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .sources ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .sources a {
+    color: var(--accent3);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .sources a:hover { color: var(--text); }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .back-btn:hover {
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Nyxii<span>Page</span></a>
+  <a href="index.html" class="nav-back">← Nazaj na blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-tag">✦ Športna aktivnost</div>
+  <h1 class="article-title">Kofein + vadba na tešče:<br><span>kaj dejansko kažejo raziskave?</span></h1>
+  <div class="article-meta">
+    <span>Nejc</span>
+    <div class="meta-dot"></div>
+    <span>1. mar 2026</span>
+    <div class="meta-dot"></div>
+    <span>7 min branja</span>
+  </div>
+</div>
+
+<div class="article-image">
+  <img src="kava.png" alt="Kofein in vadba">
+</div>
+
+<div class="article-body">
+
+  <p>V zadnjem času se po družbenih omrežjih širi trditev, da kofein pred vadbo na tešče poveča kurjenje maščob tudi do 73 %. Na prvi pogled zveni impresivno, vendar je realnost precej bolj umirjena.</p>
+
+  <p>Znanstvene raziskave potrjujejo, da kofein spodbuja sproščanje adrenalina, kar aktivira proces lipolize — razgradnjo maščobnih zalog. Posledično telo med vadbo res porabi nekoliko več maščob kot vir energije. V nekaterih študijah so zaznali povečanje oksidacije maščob za približno 30–50 %.</p>
+
+  <div class="highlight">
+    <div class="highlight-label">⚠ Ključna razlika</div>
+    <p>Večja poraba maščob med vadbo še ne pomeni večje izgube maščobe na dolgi rok.</p>
+  </div>
+
+  <h2>Zakaj pride do napačne interpretacije?</h2>
+
+  <p>Gre za pogosto zamenjavo med dvema pojmoma:</p>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <div class="info-box-icon">🔥</div>
+      <div class="info-box-title">Med vadbo</div>
+      <p>Uporaba maščob kot goriva med samo vadbo — ta se s kofeinom res poveča.</p>
+    </div>
+    <div class="info-box">
+      <div class="info-box-icon">⚖️</div>
+      <div class="info-box-title">Dolgoročno</div>
+      <p>Dejansko zmanjšanje telesne maščobe — tega kofein sam po sebi ne zagotavlja.</p>
+    </div>
+  </div>
+
+  <p>Telo lahko sproščene maščobne kisline po vadbi ponovno shrani, če skupni energijski vnos presega porabo. Zato kofein sam po sebi ni "bližnjica" do izgube maščobe.</p>
+
+  <h2>Kakšen je realen učinek?</h2>
+
+  <div class="check-list">
+    <ul>
+      <li>Rahlo izboljša zmogljivost in fokus</li>
+      <li>Nekoliko poveča delež maščob kot vira energije</li>
+      <li class="cross">Nima odločilnega vpliva na dolgoročno izgubo maščobe</li>
+    </ul>
+  </div>
+
+  <h2>Ključni dejavniki ostajajo</h2>
+
+  <div class="check-list">
+    <ul>
+      <li>Kalorični deficit</li>
+      <li>Redna vadba</li>
+      <li>Kakovosten spanec</li>
+    </ul>
+  </div>
+
+  <p>Kava pred jutranjo vadbo ni slaba ideja — lahko pomaga pri energiji in občutku napora. Vendar pa je učinek na izgubo maščobe omejen. Če pričakuješ dramatične rezultate samo zaradi kofeina, jih ne bo.</p>
+
+  <div class="sources">
+    <div class="sources-title">Viri</div>
+    <ul>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">→ Grgic J. et al. (2020) – pregled učinkov kofeina na metabolizem</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">→ Sánchez-Oliva D. et al. (2021) – študija o oksidaciji maščob</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">→ Jeukendrup A. (2011) – presnova med vadbo</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">→ PubMed – baza medicinskih raziskav</a></li>
+      <li><a href="https://www.ncbi.nlm.nih.gov/pmc" target="_blank">→ NCBI PMC – celotni članki</a></li>
+    </ul>
+  </div>
+
+  <a href="index.html" class="back-btn">← Nazaj na blog</a>
+
+</div>
+
+</body>
+</html>
